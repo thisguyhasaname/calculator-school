@@ -1,4 +1,4 @@
- = 1
+x = 1
 while x == 1:
   calculationContinue = 1
   firstNumber = int(input("What is your first number?\n\t> "))
