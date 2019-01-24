@@ -1,7 +1,7 @@
-x = 1
+ = 1
 while x == 1:
-  firstNumber = int(input("What is your first number?\n\t> "))
   calculationContinue = 1
+  firstNumber = int(input("What is your first number?\n\t> "))
   while calculationContinue == 1:
     secondNumber = int(input("What is your second number?\n\t> "))
     operation = int(input("What operation do you want to use?\n 1. Add\n 2. Subtract\n 3. Divide\n 4. Multiply\n\t> "))
@@ -33,4 +33,5 @@ while x == 1:
         firstNumber = total
         correctSpelling = 2
       elif sameanswer == "No":
-        correctSpelling == 2
+        correctSpelling = 2
+        calculationContinue = 2
