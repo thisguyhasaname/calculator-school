@@ -32,6 +32,5 @@ while x == 1:
       if sameanswer == "Yes":
         firstNumber = total
         correctSpelling = 2
-        calculationContinue = 2
       elif sameanswer == "No":
         correctSpelling == 2
