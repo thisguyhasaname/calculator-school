@@ -2,22 +2,56 @@ sameanswer = "No"
 x = 1
 while x == 1:
   calculationContinue = 1
-  firstNumber = int(input("What is your first number?\n\t> "))
+  correctInput = 1
+  while correctInput == 1:
+    try:
+      firstNumber = int(input("What is your first number?\n\t> "))
+      correctInput = 2
+    except ValueError:
+      print("Sorry, I didn't understand that.")
+      continue
   while calculationContinue == 1:
-    secondNumber = int(input("What is your second number?\n\t> "))
-    operation = int(input("What operation do you want to use?\n 1. Add\n 2. Subtract\n 3. Divide\n 4. Multiply\n\t> "))
-    if operation == 1:
-      total = firstNumber + secondNumber
-      print(f"{firstNumber} + {secondNumber} = {total}")
-    elif operation == 2:
-      total = firstNumber - secondNumber
-      print(f"{firstNumber} - {secondNumber} = {total}")
-    elif operation == 3:
-      total = firstNumber / secondNumber
-      print(f"{firstNumber} / {secondNumber} = {total}")
-    elif operation == 4:
-      total = firstNumber * secondNumber
-      print(f"{firstNumber} * {secondNumber} = {total}")
+    correctInput = 1
+    while correctInput == 1:
+      try:
+        secondNumber = int(input("What is your second number?\n\t> "))
+        correctInput = 2
+      except ValueError:
+        print("Sorry, I didn't understand that.")
+        continue
+    correctNumber = 1
+    while correctNumber == 1:
+      correctInput = 1
+      while correctInput == 1:
+        try:
+          operation = int(input("What operation do you want to use?\n 1. Add\n 2. Subtract\n 3. Divide\n 4. Multiply\n\t> "))
+          correctInput = 2
+        except ValueError:
+          print("Sorry, I didn't understand that.")
+          continue
+      if operation == 1:
+        total = firstNumber + secondNumber
+        print(f"{firstNumber} + {secondNumber} = {total}")
+        correctNumber = 2
+      elif operation == 2:
+        total = firstNumber - secondNumber
+        print(f"{firstNumber} - {secondNumber} = {total}")
+        correctNumber = 2
+      elif operation == 3:
+        try:  
+          total = firstNumber / secondNumber
+          print(f"{firstNumber} / {secondNumber} = {total}")
+          correctNumber = 2
+        except ZeroDivisionError:
+          print("Sorry, no dividing by zero allowed.")
+          continue
+      elif operation == 4:
+        total = firstNumber * secondNumber
+        print(f"{firstNumber} * {secondNumber} = {total}")
+        correctNumber = 2
+      else:
+        print("Sorry, invalid operation number, try again")
+
     correctSpelling = 1
     while correctSpelling == 1:
       wantToContinue = input("Do you want to do another calculation? Yes or No\n\t> ")
@@ -27,6 +61,8 @@ while x == 1:
         sameanswer = "No"
       elif wantToContinue == "Yes":
         correctSpelling = 2 
+      else:
+        print("Sorry, I didn't understand that.")
     correctSpelling = 1
     while correctSpelling == 1:
       if wantToContinue == "Yes":
@@ -37,3 +73,5 @@ while x == 1:
       elif sameanswer == "No":
         correctSpelling = 2
         calculationContinue = 2
+      else:
+        print("Sorry, I didn't understand that.")
