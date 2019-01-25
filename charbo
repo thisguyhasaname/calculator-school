@@ -1,0 +1,37 @@
+def calculator(prev,redo):
+  if redo == 1:
+    first = prev
+    second = int(input("second number?\n\t> "))
+  else:
+    first = int(input("first number?\n\t> "))
+    second = int(input("second number?\n\t> "))
+
+  operation = input("What operation?\n\t1. Add\n\t2. Subtract\n\t3. Multiply\n\t4. Divide\n\t> ")
+  if operation == "1":
+    print(f"{first} + {second} = {first + second}")
+    return first + second
+  elif operation == "2":
+    print(f"{first} - {second} = {first - second}")
+    return first - second
+  elif operation == "3":
+    print(f"{first} * {second} = {first * second}")
+    return first * second
+  elif operation == "4":
+    print(f"{first} / {second} = {first / second}")
+    return first / second
+
+x = 1
+prev_ans = calculator(0,0)
+while x == 1:
+  y = 1
+  if y == 1:
+    repeat = input("Do you want to do another calculation?\nY or N? >")
+    y = 2
+  use_prev = input("Do you want to use the previous answer?\nY or N ")
+  if use_prev == "Y":
+    prev_ans = calculator(prev_ans,1)
+  elif use_prev == "N":
+    prev_ans = calculator(prev_ans,0)
+  repeat = input("Do you want to do another calculation?\nY or N? >")
+  if repeat == "N":
+    x = 0
